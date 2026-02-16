@@ -2,11 +2,20 @@
 import GalleryCard from "@/components/GalleryCard.vue";
 import RouterLink from "@/components/RouterLink.vue";
 import { GalleryInjectionKey } from "@/keys";
-import { inject } from "vue";
+import { useTitle } from "@vueuse/core";
+import { inject, useSSRContext } from "vue";
 
 const galleries = Object.entries(inject(GalleryInjectionKey)!).map(([k, v]) => {
   return { ...v.default, id: k.match(/^\.\/(.*)\.gallery$/)![1]! };
 });
+
+useTitle("Galleries");
+if (import.meta.env.SSR) {
+  const ctx = useSSRContext();
+  if (ctx) {
+    ctx.title = "Galleries";
+  }
+}
 </script>
 <template>
   <main mx-auto>

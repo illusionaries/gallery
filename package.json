@@ -15,6 +15,7 @@
     "serve": "bunx serve -p 3001 dist/client"
   },
   "dependencies": {
+    "@vueuse/core": "^14.2.1",
     "unocss": "^66.6.0",
     "vue": "^3.5.25",
     "vue-router": "^5.0.2"

@@ -24,8 +24,10 @@ for (const route of routes) {
   const preloadLinks = renderPreloadLinks(ctx.modules, manifest);
   const finalHtml = template
     .replace(`<!--preload-links-->`, preloadLinks)
-    .replace(`<!--app-html-->`, html);
-  const filePath = "dist/client" + (route === "/" ? "/index.html" : `${route}.html`);
+    .replace(`<!--app-html-->`, html)
+    .replace(`<!--title-->`, ctx.title || "Gallery");
+  const filePath =
+    "dist/client" + (route === "/" ? "/index.html" : `${route}.html`);
   const fileDir = dirname(filePath);
   await fs.mkdir(fileDir, { recursive: true });
   await fs.writeFile(filePath, finalHtml, "utf-8");

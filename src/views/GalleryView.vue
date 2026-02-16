@@ -1,18 +1,28 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 import { GalleryInjectionKey } from "@/keys";
-import { inject } from "vue";
+import { inject, useSSRContext } from "vue";
 import ImageCard from "@/components/ImageCard.vue";
 import Footer from "@/components/Footer.vue";
+import { useTitle } from "@vueuse/core";
+import RouterLink from "@/components/RouterLink.vue";
 
 const galleries = inject(GalleryInjectionKey)!;
 const route = useRoute();
 const galleryId = route.params.id as string;
 const galleryModuleId = `./${galleryId}.gallery`;
 const gallery = galleries[galleryModuleId]?.default;
+
+useTitle(gallery?.location || "Not Found");
+if (import.meta.env.SSR) {
+  const ctx = useSSRContext();
+  if (ctx) {
+    ctx.title = gallery?.location || "Not Found";
+  }
+}
 </script>
 <template>
-  <main max-w-1000px mx-auto py-12 px-2>
+  <main max-w-1000px mx-auto py-12 px-2 min-h-screen flex="~ col">
     <div v-if="gallery">
       <h1 m-0>
         {{ gallery.location }}
@@ -34,6 +44,22 @@ const gallery = galleries[galleryModuleId]?.default;
         />
       </div>
     </div>
+    <div v-else>
+      <h1 m-0>404 Not Found</h1>
+      <p mt-1>
+        <RouterLink
+          path="/"
+          underline="~ offset-2 gray-200 hover:current"
+          color-gray-500
+          hover:color-inherit
+          transition-colors
+          duration-300
+          cursor-pointer
+          >Return to Home</RouterLink
+        >
+      </p>
+    </div>
+    <div flex-1></div>
     <Footer mt-12 />
   </main>
 </template>
