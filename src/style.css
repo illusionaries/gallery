@@ -1,5 +1,5 @@
 :root {
-  font-family: "Source Han Serif SC", serif;
+  font-family: "Noto Serif SC", serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -8,6 +8,7 @@
   background-color: #0a0a0a;
 
   font-synthesis: none;
+  font-optical-sizing: auto;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
