@@ -47,7 +47,7 @@ onUnmounted(() => {
     <div
       absolute
       bottom-0
-      translate-y-100%
+      translate-y-full
       left-0
       right-0
       transition-all
