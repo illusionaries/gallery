@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 
-defineProps<{
+const props = defineProps<{
   path: string;
 }>();
 
 const router = useRouter();
+const resolvedPath = router.resolve(props.path).href;
 
 const navigateTo = (path: string) => {
   document.startViewTransition(() => {
@@ -15,5 +16,5 @@ const navigateTo = (path: string) => {
 </script>
 
 <template>
-  <a :href="path" @click.prevent="navigateTo(path)"><slot /></a>
+  <a :href="resolvedPath" @click.prevent="navigateTo(props.path)"><slot /></a>
 </template>
