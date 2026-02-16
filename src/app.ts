@@ -31,6 +31,12 @@ export const createApp = () => {
   const router = createRouter({
     history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
     routes,
+    scrollBehavior(to, _, savedPosition) {
+      if (savedPosition) return savedPosition;
+      if (to.path.startsWith("/gallery/")) {
+        return { top: 0 };
+      }
+    },
   });
   const app = (import.meta.env.SSR ? createSSRApp(App) : createVueApp(App))
     .use(router)

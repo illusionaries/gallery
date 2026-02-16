@@ -15,5 +15,5 @@ const navigateTo = (path: string) => {
 </script>
 
 <template>
-  <a @click.prevent="navigateTo(path)"><slot /></a>
+  <a :href="path" @click.prevent="navigateTo(path)"><slot /></a>
 </template>
