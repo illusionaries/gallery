@@ -34,11 +34,17 @@
         "description": {
           "type": "string"
         },
+        "height": {
+          "type": "number"
+        },
         "imageSrc": {
           "type": "string"
         },
         "title": {
           "type": "string"
+        },
+        "width": {
+          "type": "number"
         }
       },
       "required": [
