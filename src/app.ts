@@ -38,7 +38,7 @@ export const createApp = () => {
       }
     },
   });
-  const app = (import.meta.env.SSR ? createSSRApp(App) : createVueApp(App))
+  const app = (import.meta.env.DEV ? createVueApp(App) : createSSRApp(App))
     .use(router)
     .provide(GalleryInjectionKey, galleries);
   return { app, router };
