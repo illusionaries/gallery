@@ -1,0 +1,37 @@
+{
+  "name": "gallery",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "vue-tsc --noEmit",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
+    "preview": "vite preview",
+    "schema": "ts-json-schema-generator --path src/model/index.ts --type Gallery --out gallery.schema.json",
+    "prerender": "bun scripts/prerender.js",
+    "build:all": "bun schema && bun build:client && bun build:server && bun prerender",
+    "serve": "bunx serve -p 3001 dist/client"
+  },
+  "dependencies": {
+    "unocss": "^66.6.0",
+    "vue": "^3.5.25",
+    "vue-router": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vue/tsconfig": "^0.8.1",
+    "fast-glob": "^3.3.3",
+    "image-dimensions": "^2.5.0",
+    "ts-json-schema-generator": "^2.5.0",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.0-beta.13",
+    "vue-tsc": "^3.1.5",
+    "yaml": "^2.8.2"
+  },
+  "overrides": {
+    "vite": "^8.0.0-beta.13"
+  }
+}

@@ -1,0 +1,18 @@
+location: 普陀山
+date: 2026 年 2 月 13 日
+images:
+  - imageSrc: /putuo/cat1.jpeg
+    title: 猫
+    description: 诶嘿嘿嘿修茂密
+  - imageSrc: /putuo/cat2.jpeg
+    title: 又一只猫
+    description: 诶嘿嘿嘿跳下来了
+  - imageSrc: /putuo/bird1.jpeg
+    title: 一群鸽子
+    description: 咕咕咕咕咕咕咕咕咕咕咕
+  - imageSrc: /putuo/bird2.jpeg
+    title: 又一群鸽子
+    description: 飞～
+  - imageSrc: /putuo/plane.jpeg
+    title: 大鸟
+    description: 冷知识这其实是一架飞机

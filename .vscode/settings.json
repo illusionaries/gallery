@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.gallery": "yaml"
+    },
+    "yaml.schemas": {
+        "./gallery.schema.json": "**/*.gallery"
+    },
+}
